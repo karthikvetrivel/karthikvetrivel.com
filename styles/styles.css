@@ -11,7 +11,6 @@
     margin-left: 23px;
   }
   
-  /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
     color: rgba(0, 0, 0, 0.384);
@@ -20,19 +19,17 @@
     text-decoration: none;
     font-size: 20px;
 }
-  
-  /* Change the color of links on hover */
+
 .topnav a:hover {
     color: black;
 }
   
-  /* Add a color to the active/current link */
 .topnav a.active {
     color: black;
 }
 
-
 /* Introduction Section Styles */
+
 .introduction { 
     margin-left: 15%;
     margin-top: 10%;
@@ -40,7 +37,7 @@
 
 .introduction-header {
     font-family: 'Fanwood Text', serif;
-    font-size: 65px;
+    font-size: 75px;
 }
 
 .name-underline {
@@ -59,7 +56,7 @@
 .introduction-header2 {
     font-family: 'Fanwood Text', serif;
     margin-top: -23px;
-    font-size: 65px;
+    font-size: 75px;
 
 }
 
@@ -67,4 +64,26 @@
     margin-top: 5px;
     line-height: 1.5;
     width: 55%;
+    font-size: 19px;
 }
+
+/* Portfolio Section */
+.portfolio {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+}
+
+.portfolio-item {
+    padding-top: 75%;
+    margin: 10px;
+    margin-bottom: 50px;
+    transition: 0.4s ease-out;
+    background-image: linear-gradient(120deg, #84faaf8c 0%, #8fd2f470 100%);
+
+}
+
+.portfolio-item:hover {
+    transform: translateY(20px);
+}
+
+
