@@ -13,26 +13,6 @@
       ]
     },
     {
-      "name": "youngPassion",
-      "direction": "90deg",
-      "colors": [
-        "#ff8177",
-        "#ff867a",
-        "#ff8c7f",
-        "#f99185",
-        "#cf556c",
-        "#b12a5b"
-      ],
-      "positions": [
-        "0%",
-        "0%",
-        "21%",
-        "52%",
-        "78%",
-        "100%"
-      ]
-    },
-    {
       "name": "newLife",
       "direction": "to right",
       "colors": [
@@ -84,8 +64,8 @@
       "name": "plumPlate",
       "direction": "135deg",
       "colors": [
-        "##a5b3f0",
-        "#ceadf0"
+        "#bbc5f0",
+        "#e2d0f5"
       ],
       "positions": [
         "0%",
@@ -96,20 +76,20 @@
       "name": "deepBlue",
       "direction": "to right",
       "colors": [
-        "#6a11cb",
-        "#2575fc"
+        "#b6a1cc",
+        "#a8c6f7"
       ],
       "positions": [
         "0%",
         "100%"
       ]
-    }
+    },
     {
       "name": "itmeoBranding",
       "direction": "180deg",
       "colors": [
-        "#2af598",
-        "#009efd"
+        "#a5fad3",
+        "#afdefa"
       ],
       "positions": [
         "0%",
