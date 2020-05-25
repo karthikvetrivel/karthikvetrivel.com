@@ -1,3 +1,5 @@
+
+
 function myFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -12,9 +14,10 @@ const magicalUnderlines = Array.from(
     document.querySelectorAll(".name-underline"));
     
     
-    const gradientAPI =
-    "https://gist.githubusercontent.com/wking-io/3e116c0e5675c8bcad8b5a6dc6ca5344/raw/4e783ce3ad0bcd98811c6531e40256b8feeb8fc8/gradient.json";
+    // const gradientAPI =
+    // "https://gist.githubusercontent.com/wking-io/3e116c0e5675c8bcad8b5a6dc6ca5344/raw/4e783ce3ad0bcd98811c6531e40256b8feeb8fc8/gradient.json";
     
+    var gradientAPI = require("./assets/gradient.json");
 
     // 1. Get random number in range. Used to get random index from array.
     const randNumInRange = max => Math.floor(Math.random() * (max - 1));
@@ -45,7 +48,7 @@ const magicalUnderlines = Array.from(
     
     // 1. Build CSS formatted linear-gradient from API data
     const buildGradient = (obj) =>
-    `linear-gradient(${obj.direction}, ${mergeArrays(
+    `linear-gradient(${"90deg"}, ${mergeArrays(
     obj.colors,
     obj.positions)
     })`;
