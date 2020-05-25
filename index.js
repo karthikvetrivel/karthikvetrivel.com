@@ -12,6 +12,7 @@ function myFunction() {
 // VARIABLES
 const magicalUnderlines = Array.from(
     document.querySelectorAll(".name-underline"));
+const squares = Array.from(document.querySelectorAll(".portfolio-item"));
 
 
 const gradientAPI =
@@ -40,9 +41,11 @@ const getData = async url => {
     return data.data;
 };
 
+
 // 5. Partial Application of addBackground to always apply
 // background to the magicalUnderlines constant
 const addBackgroundToUnderlines = addBackground(magicalUnderlines);
+const addBackgroundToSquares = addBackground(squares);
 
 // GRADIENT FUNCTIONS
 
@@ -53,13 +56,16 @@ const buildGradient = (obj) =>
         obj.positions)
     })`;
 
+const num2 = randNumInRange(3);
 // 2. Get single gradient from data pulled in array and
 // apply single gradient to a callback function
 const applyGradient = async (url, callback) => {
     const data = await getData(url);
-    const gradient = buildGradient(data[randNumInRange(data.length)]);
+    const num = data[num2];
+    const gradient = buildGradient(num);
     callback(gradient);
 };
 
 // RESULT
 applyGradient(gradientAPI, addBackgroundToUnderlines);
+applyGradient(gradientAPI, addBackgroundToSquares);
