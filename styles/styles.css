@@ -1,7 +1,6 @@
 * {
     font-family: 'Montserrat', sans-serif;
     padding: 0;
-    margin-right: 23px;
 }
 
 /* Navigation Bar Styles */
@@ -84,12 +83,11 @@
 
 @media screen and (max-width: 600px) {
     .introduction {
-        margin-left: 10%;
         text-align: center;
+        margin: 5px;
     }
     .introduction-bio {
         width: 100%;
-        text-align: center;
     }
 }
 
@@ -132,8 +130,20 @@
 }
 
 @media screen and (max-width: 600px) {
+    .personal {
+        margin-top: -5vh;
+        padding: 0;
+    }
     .personal-desc {
-        margin-top: 10%;
         text-align: center;
+        margin: 0 30px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
+    .personal-picture {
+        margin: 0;
+        width: 100%;
+        height: auto;
     }
 }
