@@ -13,18 +13,6 @@
       ]
     },
     {
-      "name": "temptingAzure",
-      "direction": "120deg",
-      "colors": [
-        "#84fab0",
-        "#8fd3f4"
-      ],
-      "positions": [
-        "0%",
-        "100%"
-      ]
-    },
-    {
       "name": "plumPlate",
       "direction": "135deg",
       "colors": [
