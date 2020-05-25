@@ -25,18 +25,6 @@
       ]
     },
     {
-      "name": "deepBlue",
-      "direction": "to right",
-      "colors": [
-        "#b6a1cc",
-        "#a8c6f7"
-      ],
-      "positions": [
-        "0%",
-        "100%"
-      ]
-    },
-    {
       "name": "itmeoBranding",
       "direction": "180deg",
       "colors": [
