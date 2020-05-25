@@ -39,8 +39,7 @@
 
 @media screen and (max-width: 600px) {
     .topnav-logo {
-        height: 0px;
-        width: 0px;
+        opacity: 0;
     }
 }
 
@@ -86,6 +85,11 @@
 @media screen and (max-width: 600px) {
     .introduction {
         margin-left: 5%;
+        text-align: center;
+    }
+    .introduction-bio {
+        width: 100%;
+        text-align: center;
     }
 }
 
