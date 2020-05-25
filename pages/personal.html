@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Vetrivel</title>
-    <link rel="shortcut icon" href="assets/kv.png">
+    <link rel="shortcut icon" href="../assets/kv.png">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -12,18 +12,27 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fanwood+Text&family=Montserrat:wght@300;400;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div class="topnav">
+    <div class="topnav" id="myTopnav">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+
         <a class="pages" href="../index.html">side projects</a>
         <a class="pages" href="work.html">work experience</a>
         <a class="pages active" href="./personal.html">me</a>
+        <a target="_blank" rel="noopener noreferrer" class="pages"
+            href="https://drive.google.com/file/d/1ivEiwEZQpCrcJc6FUsqpUbceikYbTq5k/view" style="margin-bottom: 45px;">resume</a>
 
-        <a href="mailto:kvvetrivel@gmail.com"><img class="topnav-logo" src="../assets/email.webp" alt=""></a>
-        <a href="https://www.linkedin.com/in/karthik-vetrivel-05a696166/"><img class="topnav-logo"
-                src="../assets/linkedin.png" alt=""></a>
-        <a href="https://github.com/karthikvetrivel"><img class="topnav-logo" src="../assets/github.webp" alt=""></a>
+        <a target="_blank" rel="noopener noreferrer" href="mailto:kvvetrivel@gmail.com"><img class="topnav-logo"
+                src="../assets/email.webp" alt=""></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/karthik-vetrivel-05a696166/"><img
+                class="topnav-logo" src="../assets/linkedin.png" alt=""></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/karthikvetrivel"><img class="topnav-logo"
+                src="../assets/github.webp" alt=""></a>
 
     </div>
 
@@ -34,14 +43,23 @@
                 <img src="../assets/karthikvetrivel.png" class="personal-picture" alt="">
             </div>
             <div class="col-sm">
-                <p class="personal-desc">Hi there! My name is Karthik and I'm a current junior at The Overlake School.</p>
+                <p class="personal-desc">Hi there! My name is Karthik and I'm a current junior at The Overlake School
+                    interested in computer science. I've always been fascinated by using computer science and technology
+                    for humanitarian purposes and to aid my local community.
+                </p>
+                <p style="font-size: 17px; text-align: center">
+                    I'm currently a research assistant at the
+                    University of Washington Biocomputing Laboratory, exploring the cross-sections between neurology and
+                    CS.
+                </p>
+
             </div>
         </div>
     </div>
 
 
 
-
+    <script src="../index.js"></script>
 </body>
 
 </html>
