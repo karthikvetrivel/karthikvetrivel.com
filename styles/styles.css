@@ -1,7 +1,7 @@
 * {
     font-family: 'Montserrat', sans-serif;
     padding: 0;
-    margin: 0;
+    margin-right: 23px;
 }
 
 /* Navigation Bar Styles */
@@ -11,7 +11,7 @@
     margin-left: 23px;
   }
   
-.topnav a {
+.topnav .pages {
     float: left;
     color: rgba(0, 0, 0, 0.384);
     text-align: center;
@@ -28,14 +28,21 @@
     color: black;
 }
 
+.topnav-logo {
+    height: 25px;
+    width: 25px;
+    opacity: 0.7;
+    float: right;
+    margin: 30px 30px;
+}
+
 
 @media screen and (max-width: 600px) {
-    .topnav {
-        overflow: hidden;
-        margin-left: 10px;
-      }
+    .topnav-logo {
+        height: 0px;
+        width: 0px;
+    }
 }
-  
 
 /* Introduction Section Styles */
 
@@ -76,11 +83,17 @@
     font-size: 19px;
 }
 
+@media screen and (max-width: 600px) {
+    .introduction {
+        margin-left: 5%;
+    }
+}
+
+
 /* Portfolio Section */
 .portfolio {
     margin-top: 10vh;
     margin-bottom: 5vh;
-    
 }
 
 .portfolio-item {
@@ -99,3 +112,24 @@
 }
 
 
+/* About Me Section */
+.personal {
+    margin-top: 5vh;
+}
+
+.personal-picture {
+    height: 70vh;
+    display: block;
+    margin: 0 auto;
+}
+
+.personal-desc {
+    margin-top: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .personal-desc {
+        margin-top: 10%;
+        text-align: center;
+    }
+}
