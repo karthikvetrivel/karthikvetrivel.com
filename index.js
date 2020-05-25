@@ -20,7 +20,7 @@ const gradientAPI =
 
 
 // 1. Get random number in range. Used to get random index from array.
-const randNumInRange = max => Math.floor(Math.random() * (max - 1));
+const randNumInRange = max => Math.floor(Math.random() * (max));
 
 // 2. Merge two separate array values at the same index to
 // be the same value in new array.
