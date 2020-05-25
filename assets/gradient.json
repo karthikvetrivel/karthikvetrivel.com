@@ -1,63 +1,64 @@
 {
-	"data": [{
-			"name": "warmFlame",
-			"direction": "90deg",
-			"colors": [
-				"#ff9a9e",
-				"#fad0c4"
-			],
-			"positions": [
-				"0%",
-				"100%"
-			]
-		},
-		{
-			"name": "temptingAzure",
-			"direction": "120deg",
-			"colors": [
-				"#84fab0",
-				"#8fd3f4"
-			],
-			"positions": [
-				"0%",
-				"100%"
-			]
-		},
-		{
-			"name": "plumPlate",
-			"direction": "135deg",
-			"colors": [
-				"#bbc5f0",
-				"#e2d0f5"
-			],
-			"positions": [
-				"0%",
-				"100%"
-			]
-		},
-		{
-			"name": "deepBlue",
-			"direction": "to right",
-			"colors": [
-				"#b6a1cc",
-				"#a8c6f7"
-			],
-			"positions": [
-				"0%",
-				"100%"
-			]
-		},
-		{
-			"name": "itmeoBranding",
-			"direction": "180deg",
-			"colors": [
-				"#a5fad3",
-				"#afdefa"
-			],
-			"positions": [
-				"0%",
-				"100%"
-			]
-		}
-	]
+  "data": [
+    {
+      "name": "warmFlame",
+      "direction": "90deg",
+      "colors": [
+        "#ff9a9e",
+        "#fad0c4"
+      ],
+      "positions": [
+        "0%",
+        "100%"
+      ]
+    },
+    {
+      "name": "temptingAzure",
+      "direction": "120deg",
+      "colors": [
+        "#84fab0",
+        "#8fd3f4"
+      ],
+      "positions": [
+        "0%",
+        "100%"
+      ]
+    },
+    {
+      "name": "plumPlate",
+      "direction": "135deg",
+      "colors": [
+        "#bbc5f0",
+        "#e2d0f5"
+      ],
+      "positions": [
+        "0%",
+        "100%"
+      ]
+    },
+    {
+      "name": "deepBlue",
+      "direction": "to right",
+      "colors": [
+        "#b6a1cc",
+        "#a8c6f7"
+      ],
+      "positions": [
+        "0%",
+        "100%"
+      ]
+    },
+    {
+      "name": "itmeoBranding",
+      "direction": "180deg",
+      "colors": [
+        "#a5fad3",
+        "#afdefa"
+      ],
+      "positions": [
+        "0%",
+        "100%"
+      ]
+    }
+  ]
 }
