@@ -72,7 +72,7 @@
 
 .introduction { 
     margin-left: 15%;
-    margin-top: 10%;
+    margin-top: 7%;
 }
 
 .introduction-header {
@@ -153,7 +153,6 @@
     height: 70vh;
     display: block;
     margin: 0 auto;
-    margin-top: 20px;
 }
 
 .personal-desc {
@@ -177,6 +176,7 @@
         margin: 0;
         width: 100%;
         height: auto;
+        margin-top: 20px;
     }
 }
 
