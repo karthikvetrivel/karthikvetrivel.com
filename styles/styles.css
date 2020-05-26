@@ -134,14 +134,13 @@
     margin: 10px;
     margin-bottom: 50px;
     transition: 0.4s ease-out;
-    background-image: linear-gradient(120deg, #84faaf8c 0%, #8fd2f470 100%);
-
+    background-image: linear-gradient(120deg, #84faaf8c 0%, #8fd2f470 100%); 
 }
+
 
 .portfolio-item:hover {
     transform: translateY(20px);
-    background: rgba(0, 0, 0, 0.918);
-    background-image: linear-gradient(120deg, #84faaf8c 0%, #8fd2f470 100%);
+    /* background-image: linear-gradient(120deg, #84faaf8c 0%, #8fd2f470 100%); */
 }
 
 
@@ -182,14 +181,3 @@
 }
 
 /* Animations */
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange }
-  }
