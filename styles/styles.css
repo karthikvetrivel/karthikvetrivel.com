@@ -40,7 +40,7 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .topnav-logo {
         display: none;
     }
@@ -72,8 +72,9 @@
 /* Introduction Section Styles */
 
 .introduction { 
-    margin-left: 15%;
-    margin-top: 7%;
+    margin-left: 13%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .introduction-header {
@@ -103,7 +104,6 @@
 }
 
 .introduction-bio {
-    margin-top: 5px;
     line-height: 1.5;
     width: 55%;
     font-size: 17px;
@@ -125,7 +125,7 @@
 
 /* Portfolio Section */
 .container {
-    max-width: 1250px;
+    max-width: 1160px;
     margin: 0 auto;
 }
 .portfolio {
@@ -134,7 +134,7 @@
 }
 
 .portfolio-item {
-    height: 500px;
+    height: 473px;
     margin: 10px;
     box-sizing: border-box;
     margin-bottom: 50px;
