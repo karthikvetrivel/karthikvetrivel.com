@@ -124,14 +124,21 @@
 
 
 /* Portfolio Section */
+.container {
+    max-width: 2000px;
+    
+}
 .portfolio {
     margin-top: 10vh;
     margin-bottom: 5vh;
+    padding: 0 10vw;
+    
 }
 
 .portfolio-item {
     height: 500px;
     margin: 10px;
+    box-sizing: border-box;
     margin-bottom: 50px;
     transition: 0.4s ease-out;
     background-image: linear-gradient(120deg, #84faaf8c 0%, #8fd2f470 100%); 
@@ -141,6 +148,13 @@
 .portfolio-item:hover {
     transform: translateY(20px);
     /* background-image: linear-gradient(120deg, #84faaf8c 0%, #8fd2f470 100%); */
+}
+
+@media screen and (max-width: 1000px) {
+    .portfolio {
+        margin: 0;
+        padding: 30px 30px;
+    }
 }
 
 
