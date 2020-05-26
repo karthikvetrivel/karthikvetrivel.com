@@ -125,14 +125,12 @@
 
 /* Portfolio Section */
 .container {
-    max-width: 2000px;
-    
+    max-width: 1250px;
+    margin: 0 auto;
 }
 .portfolio {
     margin-top: 10vh;
     margin-bottom: 5vh;
-    padding: 0 10vw;
-    
 }
 
 .portfolio-item {
@@ -150,7 +148,7 @@
     /* background-image: linear-gradient(120deg, #84faaf8c 0%, #8fd2f470 100%); */
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 600px) {
     .portfolio {
         margin: 0;
         padding: 30px 30px;
