@@ -125,7 +125,7 @@
 
 /* Portfolio Section */
 .container {
-    max-width: 1160px;
+    max-width: 1250px;
     margin: 0 auto;
 }
 .portfolio {
@@ -134,19 +134,15 @@
 }
 
 .portfolio-item {
+    position: relative;
     height: 473px;
     margin: 10px;
     box-sizing: border-box;
     margin-bottom: 50px;
-    transition: 0.4s ease-out;
     background-image: linear-gradient(120deg, #84faaf8c 0%, #8fd2f470 100%); 
+    transition: 1s ease-in;
 }
 
-
-.portfolio-item:hover {
-    transform: translateY(20px);
-    /* background-image: linear-gradient(120deg, #84faaf8c 0%, #8fd2f470 100%); */
-}
 
 .portfolio-header {
     color: white;
@@ -155,28 +151,38 @@
     padding-left: 20px;
 }
 
-.portfolio-kristalic {
-    max-width: 100%;
+.portfolio-image {
+    max-width: 80%;
     max-height: 80%;
     display: block;
     margin: 0 auto;
 }
 
-.portfolio-UWB {
-    max-width: 80%;
-    max-height: 80%;
-    display: block;
-    margin: 0 auto;
-    margin-top: 40px;
+.portfolio-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 40px 0 0 40px;
 }
 
-.portfolio-foundry {
-    max-width: 80%;
-    max-height: 80%;
-    display: block;
-    margin: 0 auto;
-    margin-top: 40px;
+.overlay {
+    font-family: vcsm;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.2s ease-in;
+    background: rgba(0, 0, 0, 0.80); 
+    color: white;
 }
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
 
 
 @media screen and (max-width: 600px) {
