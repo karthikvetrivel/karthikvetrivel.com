@@ -19,7 +19,7 @@
     font-size: 20px;
 }
 
-.topnav a:hover {
+.topnav a:hover, .topnav a:active {
     color: black;
 }
   
@@ -92,7 +92,7 @@
     transition: background-size 0.25s ease-in;
 }
 
-.name-underline:hover {
+.name-underline:hover, .name-underline:active {
     background-size: 100% 88%;
 }
 
@@ -193,7 +193,7 @@
     color: white;
 }
 
-.portfolio-item:hover .overlay {
+.portfolio-item:hover .overlay, .portfolio-item:active .overlay {
     opacity: 1;
 }
 
