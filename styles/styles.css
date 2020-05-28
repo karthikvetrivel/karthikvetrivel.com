@@ -143,7 +143,6 @@
     transition: 1s ease-in;
 }
 
-
 .portfolio-header {
     color: white;
     font-size: 35px;
@@ -158,10 +157,26 @@
     margin: 0 auto;
 }
 
-.portfolio-title {
-    font-size: 20px;
+.inner-wrap {
+    margin: 12% 8% 0 10.5%;
+    letter-spacing: 0.2px;
+}
+
+.portfolio-sub-title {
+    font-size: 18px;
     font-weight: 600;
-    margin: 40px 0 0 40px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.portfolio-sub-role {
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.portfolio-sub-comm {
+    font-style: italic;
+    margin-top: 30px;
 }
 
 .overlay {
@@ -174,7 +189,7 @@
     width: 100%;
     opacity: 0;
     transition: 0.2s ease-in;
-    background: rgba(0, 0, 0, 0.80); 
+    background: rgba(0, 0, 0, 0.85); 
     color: white;
 }
 
