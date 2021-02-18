@@ -1,0 +1,487 @@
+body * {
+    font-family: 'Work Sans', sans-serif;
+    color: #363636;
+}
+
+
+/* Navigation Bar Styles */
+
+.topnav {
+    display: block;
+    top: 1px;
+    right: 1px;
+}
+
+.topnav .pages {
+    float: left;
+    color: rgba(0, 0, 0, 0.384);
+    text-align: center;
+    padding: 30px 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.topnav a:hover,
+.topnav a:active {
+    color: black;
+}
+
+.topnav a.active {
+    color: black;
+}
+
+.topnav-logo {
+    height: 30px;
+    width: 30px;
+    opacity: 0.7;
+    float: right;
+    margin: 30px 30px;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.large_orange_circle {
+    background-color: #f5d282;
+    opacity: 0.8;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    left: -50px;
+    top: -50px;
+    position: absolute;
+    z-index: 0;
+}
+
+.profile_img {
+    width: 250px;
+    height: 250px;
+    background-image: url('../assets/karthik_vetrivel.png');
+    background-size: contain;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    margin-left: 70px;
+    margin-top: 70px;
+    position: relative;
+    z-index: 1;
+    background-position: center;
+
+}
+
+.gray {
+    background-color: #f3f4f5;
+}
+
+.small_orange_circle {
+    background-color: #e9b743;
+    opacity: 0.5;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    left: 160px;
+    top: -20px;
+    position: absolute;
+    z-index: -3;
+}
+
+h2 {
+    color: #464646;
+    margin-bottom: 20px;
+    font-weight: 500;
+
+}
+
+.LeftSideContainer {
+    margin-left: 30px;
+}
+
+i {
+    color: #f0ae12;
+    padding-right: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #464646;
+}
+
+.LeftHeader,
+.RightHeader {
+    margin-top: 30px;
+    margin-bottom: 60px;
+
+}
+
+.GoldenBadge {
+    background-color: #f0ae12;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.Education {
+    margin-top: 20px;
+
+}
+
+.skills {
+    font-weight: 500;
+    max-width: 360px;
+    min-width: 310px !important;
+
+    line-height: 32px;
+}
+
+.GrayDot {
+    color: #e1e1e1;
+}
+
+h1 {
+    margin-top: 100px;
+    font-weight: 600;
+    font-size: 60px;
+}
+
+.RightSideContainer {
+    margin-left: 80px;
+    width: fit-content;
+
+}
+
+.surname {
+    color: #f0ae12;
+    ;
+}
+
+.about,
+.RightSideContainer {
+    margin-top: 75px;
+    max-width: 750px;
+}
+
+.WorkExperience h5 {
+    margin-top: 20px;
+}
+
+
+.hobbies .rowCont {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 400px;
+}
+
+.hobbies .rowCont div {
+    width: 50%;
+}
+
+.skills i {
+    padding: 1px;
+}
+
+@media only screen and (max-width: 1527px) {
+
+    .about,
+    .RightSideContainer {
+        max-width: 620px;
+    }
+}
+
+@media only screen and (max-width: 1337px) {
+
+    .about,
+    .RightSideContainer {
+        max-width: 800px;
+    }
+
+    h1 {
+        margin-top: 30px;
+    }
+
+    .large_orange_circle {
+        z-index: -1;
+        opacity: 0.4;
+    }
+
+    .gray {
+        display: none;
+    }
+
+    .skills {
+        padding-right: 15px;
+    }
+}
+
+@media only screen and (max-width: 873px) {
+    .profile_img {
+        margin-left: 30px;
+    }
+
+    .LeftSideContainer,
+    .RightSideContainer {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .topnav-logo {
+        display: none;
+    }
+
+    .topnav a {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: left;
+        display: block;
+        color: black;
+        font-size: 30px;
+        margin: 30px 30px;
+    }
+
+    .topnav.responsive {
+        position: relative;
+    }
+
+    .topnav.responsive .icon {
+        opacity: 0.3;
+        margin-bottom: -10px;
+
+
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+        background-color: white;
+    }
+
+
+}
+
+#pinIcon {
+    padding-left: 2px;
+    padding-right: 12px;
+
+}
+
+.skills .float-end {
+    padding-right: 8px;
+
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+
+.job-title { 
+    font-size: 20px
+}
+/* -------------------------------- 
+  
+  Main components 
+  
+  -------------------------------- */
+#cd-timeline {
+    position: relative;
+    padding: 2em 0;
+    margin-bottom: 55px;    
+}
+
+#cd-timeline::before {
+    content: "";
+    position: absolute;
+    top: 39px;
+    left: 25px;
+    height: 79%;
+    width: 4px;
+    background: #f1ca6f;
+    overflow: hidden;
+    opacity: 0.5;
+}
+
+.cd-timeline-block {
+    position: relative;
+    margin: 3em 0;
+}
+
+.cd-timeline-block:first-child {
+    margin-top: 0;
+}
+
+.cd-timeline-block:last-child {
+    margin-bottom: 0;
+}
+
+@media only screen and (min-width: 1170px) {
+    .cd-timeline-block {
+        margin: 4em 0;
+    }
+
+    .cd-timeline-block:first-child {
+        margin-top: 0;
+    }
+
+    .cd-timeline-block:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.cd-timeline-img {
+    position: absolute;
+    top: 8px;
+    left: 19px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #f3bc3abd, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.cd-timeline-img {
+    /* background: #f0ae12; */
+    background: white;
+
+}
+
+.cd-timeline-content {
+    position: relative;
+    margin-left: 60px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: row; 
+}
+
+
+
+/* -------------------------------- 
+
+Employment Card
+
+-------------------------------- */
+
+.employment-card-img {
+    margin-top: -10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 5%;
+    float: left;
+    margin-right: 20px;
+}
+
+.employment-card { 
+    margin-top: -10px;
+    width: 120%;
+}
+
+.employment-card p {
+    margin: 0;
+    color: gray;
+}
+
+.employment-card p:last-child {
+    margin-top: 10px;
+    color: #363636;
+}
+
+.employment-card h3 {
+    font-size: 23px;
+}
+
+
+
+/* -------------------------------- 
+
+Animations
+
+-------------------------------- */
+
+.slide-up {
+    -webkit-animation: slide-up 1.1s cubic-bezier(0.65, 0, 0.35, 1) both;
+    animation: slide-up 1s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0%;
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* -------------------------------- 
+
+Projects
+
+-------------------------------- */
+.projects { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.card{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 0px 1px rgba(0,0,0,.06), 0 0 1px rgba(0,0,0,.03);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    padding: 14px 80px 18px 36px;
+    cursor: pointer;
+    width: 45%;
+    margin-bottom: 30px;
+}
+
+.card:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.card h3{
+  font-size: 23px;
+}
+
+.card img{
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  max-height: 120px;
+}
+
+.card-1{
+  background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);
+      background-repeat: no-repeat;
+    background-position: right;
+    background-size: 80px;
+}
+
+.card-2{
+   background-image: url(https://ionicframework.com/img/getting-started/components-card.png);
+      background-repeat: no-repeat;
+    background-position: right;
+    background-size: 80px;
+}
+
+.card-3{
+   background-image: url(https://ionicframework.com/img/getting-started/theming-card.png);
+      background-repeat: no-repeat;
+    background-position: right;
+    background-size: 80px;
+}
+
+@media(max-width: 990px){
+  .card{
+    margin: 20px;
+  }
+} 
+
