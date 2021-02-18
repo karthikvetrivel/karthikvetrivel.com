@@ -114,16 +114,11 @@ a {
 
 }
 
-.education-section {
-    margin-top: 20px;
-
-}
 
 .skills {
     font-weight: 500;
     max-width: 360px;
     min-width: 310px !important;
-
     line-height: 32px;
 }
 
