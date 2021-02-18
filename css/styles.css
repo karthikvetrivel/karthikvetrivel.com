@@ -133,9 +133,8 @@ h1 {
 }
 
 .RightSideContainer {
-    margin-left: 80px;
-
-
+    margin-left: 80px;  
+    max-width: 60%;
 }
 
 .surname {
@@ -146,7 +145,6 @@ h1 {
 .about,
 .RightSideContainer {
     margin-top: 75px;
-    max-width: 750px;
 }
 
 .WorkExperience h5 {
