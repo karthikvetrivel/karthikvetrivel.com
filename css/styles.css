@@ -139,7 +139,6 @@ h1 {
 
 .surname {
     color: #f0ae12;
-    ;
 }
 
 .about,
@@ -151,6 +150,9 @@ h1 {
     margin-top: 20px;
 }
 
+.helpful-link:hover {
+    color: #f0ae12;
+}
 
 .hobbies .rowCont {
     margin-top: 10px;
