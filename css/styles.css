@@ -1,6 +1,7 @@
 body * {
     font-family: 'Work Sans', sans-serif;
     color: #363636;
+    margin: 0;
 }
 
 
@@ -93,7 +94,7 @@ h2 {
 }
 
 .LeftSideContainer {
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 i {
@@ -113,17 +114,9 @@ a {
 
 }
 
-.GoldenBadge {
-    background-color: #f0ae12;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    display: inline-block;
-    font-weight: 500;
-}
-
-.Education {
+.education-section {
     margin-top: 20px;
+    margin-bottom: 40px;
 
 }
 
