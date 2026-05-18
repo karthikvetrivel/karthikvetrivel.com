@@ -1,34 +1,160 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
-        <title>Karthik Vetrivel</title>
+        <meta charset="utf-8">
+        <title>karthik — -zsh — 80×24</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Karthik Vetrivel — Software engineer at NVIDIA. Stanford CS '25.">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="main.css">
         <link rel="shortcut icon" type="image/png" href="favicon.png"/>
     </head>
     <body>
-        <div class="outer">
-            <main>
-                <h1 class="caps">Karthik V.</h1>
-                <h1>Stanford University '25</h1>
-                <div class="projects">
-                    <p class="caps">Links:</p>
-                    <ul>
-                        <li><p><a href="https://google.com">Resum&eacute</a></p></li>
-                        <li><p><a href="https://tml.stanford.edu/">The Movement Lab</a></p></li>
-                        <li><p><a href="https://cuilab.stanford.edu/">Cui Lab</a></p></li>
-                        <li><p><a href="https://google.com">about</a></p></li>
-                    </ul>
+        <main class="terminal" role="main">
+            <header class="titlebar" aria-hidden="true">
+                <div class="lights">
+                    <span class="light light--close"></span>
+                    <span class="light light--min"></span>
+                    <span class="light light--max"></span>
                 </div>
-                <b class="line"></b>
-                <div class="other">
-                    <p class="caps">Connect:</p>
-                    <p><a href="kvetriv@stanford.edu">Email (stanford)</a></p>
-                    <p><a href="https://github.com/karthikvetrivel">GitHub (karthikvetrivel)</a></p>
-                    <p><a href="https://www.linkedin.com/in/kvetriv/">LinkedIn (kvetriv)</a></p>
+                <div class="title">karthik &mdash; -zsh &mdash; 80&times;24</div>
+            </header>
+
+            <div class="screen">
+                <p class="line muted" id="last-login">Last login: -- on ttys000</p>
+
+                <p class="line prompt-line"><span class="prompt"><span class="user">karthik</span> <span class="path">~</span> <span class="sigil">%</span></span> <span class="cmd">whoami</span></p>
+                <p class="line out">Karthik Vetrivel</p>
+
+                <p class="line prompt-line"><span class="prompt"><span class="user">karthik</span> <span class="path">~</span> <span class="sigil">%</span></span> <span class="cmd">cat about.md</span></p>
+                <p class="line out">Software Engineer at NVIDIA, enabling GPUs to run on 1000+ node</p>
+                <p class="line out">clusters for training and inference.</p>
+                <p class="line out">Stanford CS &rsquo;25.</p>
+
+                <p class="line prompt-line"><span class="prompt"><span class="user">karthik</span> <span class="path">~</span> <span class="sigil">%</span></span> <span class="cmd">ls work/</span></p>
+                <p class="line out cols">
+                    <span class="file">manifest.txt</span><span class="dir">meta-ai/</span><span class="dir">nvidia/</span><span class="dir">stanford-ai-lab/</span><span class="dir">tesla/</span>
+                </p>
+
+                <p class="line prompt-line"><span class="prompt"><span class="user">karthik</span> <span class="path">~</span> <span class="sigil">%</span></span> <span class="cmd">cat work/manifest.txt</span></p>
+                <div class="line out manifest">
+                    <div class="entry">
+                        <span class="key">nvidia</span><span class="desc">GPU Operator &middot; AI Infrastructure</span>
+                        <span class="key" aria-hidden="true"></span><span class="desc"><a href="https://github.com/NVIDIA/gpu-operator">github.com/NVIDIA/gpu-operator</a></span>
+                    </div>
+                    <div class="entry">
+                        <span class="key">tesla</span><span class="desc">Autopilot &middot; Model 3 auto-park</span>
+                        <span class="key" aria-hidden="true"></span><span class="desc"><a href="https://www.tesla.com/ownersmanual/model3/en_eu/GUID-4ED40B33-6E34-4E58-B8C3-9D0810DB87D6.html">tesla.com/ownersmanual/&hellip;/auto-park</a></span>
+                    </div>
+                    <div class="entry">
+                        <span class="key">stanford-ai-lab</span><span class="desc">CVPR &rsquo;23 &middot; human motion</span>
+                        <span class="key" aria-hidden="true"></span><span class="desc"><a href="https://ai.stanford.edu/">ai.stanford.edu</a></span>
+                    </div>
+                    <div class="entry">
+                        <span class="key">meta-ai</span><span class="desc">research collaboration</span>
+                        <span class="key" aria-hidden="true"></span><span class="desc"><a href="https://ai.meta.com/">ai.meta.com</a></span>
+                    </div>
                 </div>
-            </main>   
-            
-            site in progress!
-        </div>
+
+                <p class="line prompt-line"><span class="prompt"><span class="user">karthik</span> <span class="path">~</span> <span class="sigil">%</span></span> <span class="cmd">cat .contacts</span></p>
+                <div class="line out contacts">
+                    <span class="key">email</span><span class="desc">kvetriv@{my-university}.edu</span>
+                    <span class="key">github</span><span class="desc"><a href="https://github.com/karthikvetrivel">github.com/karthikvetrivel</a></span>
+                    <span class="key">linkedin</span><span class="desc"><a href="https://www.linkedin.com/in/kvetriv/">linkedin.com/in/kvetriv</a></span>
+                </div>
+
+                <p class="line prompt-line final" id="active-prompt"><span class="prompt"><span class="user">karthik</span> <span class="path">~</span> <span class="sigil">%</span></span> <span class="active" id="input" contenteditable="true" spellcheck="false" autocapitalize="off" inputmode="text" aria-label="Terminal input"></span><span class="caret" id="cursor" aria-hidden="true"></span><span class="hint" id="hint" aria-hidden="true">try it &mdash; type anything and press enter</span></p>
+            </div>
+        </main>
+
+        <script>
+            (() => {
+                // — live login timestamp —
+                const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+                const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                const pad = n => String(n).padStart(2,'0');
+                const d = new Date();
+                const stamp = `${days[d.getDay()]} ${months[d.getMonth()]} ${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+                document.getElementById('last-login').textContent = `Last login: ${stamp} on ttys000`;
+
+                // — interactive input —
+                const screen = document.querySelector('.screen');
+                const input = document.getElementById('input');
+                const activePrompt = document.getElementById('active-prompt');
+
+                function placeCursorAtEnd() {
+                    input.focus();
+                    const sel = window.getSelection();
+                    const range = document.createRange();
+                    range.selectNodeContents(input);
+                    range.collapse(false);
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                }
+
+                // click anywhere on the screen (except links) → focus input
+                screen.addEventListener('click', (e) => {
+                    if (e.target.closest('a')) return;
+                    if (e.target === input) return;
+                    placeCursorAtEnd();
+                });
+
+                // auto-focus after the entrance settles
+                setTimeout(placeCursorAtEnd, 1200);
+
+                // sanitize paste to plain text
+                input.addEventListener('paste', (e) => {
+                    e.preventDefault();
+                    const text = (e.clipboardData || window.clipboardData).getData('text/plain');
+                    document.execCommand('insertText', false, text.replace(/\n/g, ' '));
+                });
+
+                // first keystroke → hide hint
+                input.addEventListener('beforeinput', () => {
+                    screen.classList.add('has-typed');
+                });
+
+                // Enter → respond
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        submit();
+                    }
+                });
+
+                function submit() {
+                    const typed = input.textContent.trim();
+                    if (!typed) return;
+
+                    const frag = document.createDocumentFragment();
+
+                    // frozen prompt showing what was typed
+                    const frozen = document.createElement('p');
+                    frozen.className = 'line prompt-line no-anim';
+                    frozen.innerHTML = '<span class="prompt"><span class="user">karthik</span> <span class="path">~</span> <span class="sigil">%</span></span> <span class="cmd"></span>';
+                    frozen.querySelector('.cmd').textContent = typed;
+                    frag.appendChild(frozen);
+
+                    // response
+                    const r1 = document.createElement('p');
+                    r1.className = 'line out no-anim';
+                    r1.textContent = 'This terminal session is over!';
+                    frag.appendChild(r1);
+
+                    const r2 = document.createElement('p');
+                    r2.className = 'line out no-anim';
+                    r2.textContent = 'If you’re interested in more, reach out!';
+                    frag.appendChild(r2);
+
+                    activePrompt.parentNode.insertBefore(frag, activePrompt);
+
+                    input.textContent = '';
+                    placeCursorAtEnd();
+                    screen.scrollTop = screen.scrollHeight;
+                }
+            })();
+        </script>
     </body>
 </html>
