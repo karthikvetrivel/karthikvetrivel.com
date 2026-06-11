@@ -90,6 +90,14 @@ const BOOKSHELF_PAGES = [
   'SYSTEMS: Linux, Kubernetes, Docker, AWS, Azure, GCP, eBPF. EDUCATION: B.S./M.S. Computer Science, Stanford University, 2021 – 2025.',
 ];
 
-const FIRST_STEPS = [
-  'You step into the lab. A professor looks up from a table of strange spheres…',
+// First-load tutorial — _KEYS for keyboard devices, _TOUCH for touchscreens.
+const FIRST_STEPS_KEYS = [
+  'You step into the lab. A professor looks up from a table of strange spheres…\n\n▼ CLICK HERE OR PRESS ENTER',
+  'Walk around with the ARROW KEYS or WASD.',
+  'When PRESS ENTER TO EXAMINE pops up, give it a try. Everything in the lab has a story — start with the professor!',
+];
+const FIRST_STEPS_TOUCH = [
+  'You step into the lab. A professor looks up from a table of strange spheres…\n\n▼ TAP HERE TO CONTINUE',
+  'Walk around with the pad at the bottom of the screen.',
+  'When TAP A TO EXAMINE pops up, give it a try. Everything in the lab has a story — start with the professor!',
 ];

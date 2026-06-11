@@ -25,6 +25,8 @@ const MAP = [
   'XXXXXXXXXXXXX',
 ];
 const SOLID = 'ECYpwBxMTqDX';
+const INTERACTABLE = 'ECYpwBxMTqD';   // SOLID minus the void; all answer to a press
+const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 const NPC_POS = { x: 6, y: 7 };
 const BALL_COLS = [8, 9, 10];   // table columns holding the three balls
 
@@ -173,7 +175,7 @@ document.getElementById('panel-close').addEventListener('click', closePanel);
 function openLink(url) { window.open(url, '_blank', 'noopener'); }
 
 function interact() {
-  const d = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] }[player.dir];
+  const d = DIRS[player.dir];
   const fx = player.x + d[0], fy = player.y + d[1];
 
   if (fx === NPC_POS.x && fy === NPC_POS.y) return talkToNPC();
@@ -301,6 +303,29 @@ bindPad('btn-left', 'left'); bindPad('btn-right', 'right');
 document.getElementById('btn-a').addEventListener('pointerdown', (e) => { e.preventDefault(); pressAction(); });
 document.getElementById('btn-b').addEventListener('pointerdown', (e) => { e.preventDefault(); pressBack(); });
 
+/* ── first-visit hints ────────────────────────────────────────── */
+const FINE_POINTER = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const hintMove = document.getElementById('hint-move');
+const hintAct = document.getElementById('hint-act');
+if (!FINE_POINTER) {
+  hintMove.textContent = 'WALK WITH THE PAD BELOW';
+  hintAct.textContent = 'TAP A TO EXAMINE';
+}
+let hasMoved = false;
+
+function facingInteractable() {
+  const d = DIRS[player.dir];
+  const fx = player.x + d[0], fy = player.y + d[1];
+  if (fx === NPC_POS.x && fy === NPC_POS.y) return true;
+  const ch = (MAP[fy] || '')[fx];
+  return !!ch && INTERACTABLE.includes(ch);
+}
+function updateHints() {
+  const idle = mode === 'explore' && !player.moving;
+  hintMove.hidden = !idle || hasMoved;
+  hintAct.hidden = !idle || !facingInteractable();
+}
+
 /* ── update & render ──────────────────────────────────────────── */
 function updatePlayer(dt) {
   if (player.moving) {
@@ -323,10 +348,11 @@ function updatePlayer(dt) {
   if (player.dir !== dir) { player.dir = dir; player.turnTimer = TURN_DELAY; return; }
   if (player.turnTimer > 0) { player.turnTimer -= dt; return; }
 
-  const d = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] }[dir];
+  const d = DIRS[dir];
   const nx = player.x + d[0], ny = player.y + d[1];
   if (solidAt(nx, ny)) return;
   player.moving = true; player.t = 0;
+  hasMoved = true;
   player.fromX = player.x; player.fromY = player.y;
   player.toX = nx; player.toY = ny;
 }
@@ -378,6 +404,7 @@ function frame(ts) {
   }
 
   updatePlayer(dt);
+  updateHints();
   render();
   requestAnimationFrame(frame);
 }
@@ -397,4 +424,4 @@ fit();
 
 consoleEl.focus({ preventScroll: true });
 requestAnimationFrame(frame);
-showDialogue(FIRST_STEPS);
+showDialogue(FINE_POINTER ? FIRST_STEPS_KEYS : FIRST_STEPS_TOUCH);

@@ -94,6 +94,24 @@
   @keyframes bob { 50% { transform: translateY(2px); } }
   #dlg-more[hidden] { display: none; }
 
+  /* ── first-visit hints ── */
+  .hint {
+    position: absolute; left: 50%; z-index: 5;
+    transform: translate(-50%, 0);
+    background: #f8f8f0; color: var(--box-ink);
+    border: 2px solid var(--box-ink); border-radius: 2px;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.35);
+    padding: 6px 8px;
+    font-size: max(8px, calc(var(--dlg-font, 10px) * 0.85));
+    line-height: 1.4;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .hint[hidden] { display: none; }
+  #hint-move { top: 3.5%; }
+  #hint-act { bottom: 3%; animation: hint-bob 0.7s steps(2) infinite; }
+  @keyframes hint-bob { 50% { transform: translate(-50%, 2px); } }
+
   /* ── choice menu ── */
   #menu {
     position: absolute; right: 2%; bottom: calc(2.5% + var(--dlg-font, 10px) * 7);
@@ -210,6 +228,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     #dlg-more { animation: none; }
+    #hint-act { animation: none; }
     #panel-art.opening #ball-sprite,
     #panel-art.opening #icon-sprite { animation: none; }
     #panel-art.opening #ball-sprite { opacity: 0; }
