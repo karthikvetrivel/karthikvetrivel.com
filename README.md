@@ -2,9 +2,9 @@
 
 A portfolio site styled as a GBA-era Pokémon lab. Walk around the room,
 talk to the professor (me), and examine the three balls on the table —
-one per career stop (Stanford, Tesla Autopilot, NVIDIA). The PC links to
-GitHub, the bookshelves hold skills, the posters are the resume, and the
-door sends email.
+one per career stop (Stanford + Meta AI research, Tesla Autopilot,
+NVIDIA). The PC links to GitHub, the bookshelves hold skills, the
+posters link to LinkedIn, and the door sends email.
 
 ## Running
 
@@ -53,3 +53,10 @@ black hair, blue button-up, visible eyes).
 
 Arrows/WASD to walk, Z/Enter to talk or examine, X/Esc to go back.
 Touch devices get an on-screen D-pad. Respects `prefers-reduced-motion`.
+
+
+NOTES on Linkedin Post:
+
+- Playing the Pokemon games since I was 4 years old
+- Building software that is authentically me
+- One of my favorite things about Pokemon games is interacting with game elements that are not necessarily plot central (reflecting on this)

@@ -129,6 +129,35 @@
   #menu .opt::before { content: '\00a0\00a0'; display: inline-block; width: 1.2em; }
   #menu .opt.sel::before { content: '▶'; color: #d83830; }
 
+  /* ── name entry box ── */
+  #namebox {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    bottom: calc(2.5% + var(--dlg-font, 10px) * 7);
+    z-index: 7;
+    display: flex; gap: 8px; align-items: center;
+    background: #f8f8f0;
+    border: 3px solid var(--box-ink);
+    box-shadow: 0 0 0 3px #f8f8f0, 0 0 0 6px var(--box-ink), 0 4px 0 6px rgba(0,0,0,0.35);
+    color: var(--box-ink);
+    padding: 10px;
+    font-size: var(--dlg-font, 10px);
+  }
+  #namebox[hidden] { display: none; }
+  #name-input {
+    font-family: inherit; font-size: inherit; color: var(--box-ink);
+    text-transform: uppercase;
+    background: transparent; border: none;
+    border-bottom: 2px solid var(--box-ink);
+    outline: none; width: 13ch; padding: 2px 0;
+  }
+  #name-input::placeholder { color: #b8b2a2; }
+  #namebox button {
+    font-family: inherit; font-size: inherit; cursor: pointer;
+    color: #fff; background: var(--box-ink); border: 2px solid var(--box-ink);
+    padding: 6px 8px;
+  }
+  #namebox button:hover, #namebox button:focus-visible { background: #d83830; outline: none; }
+
   /* ── detail panel (starter summary screen) ── */
   #panel {
     position: absolute; inset: 0; z-index: 10;

@@ -5,23 +5,21 @@ const PROFILE = {
   name: 'Karthik Vetrivel',
   github: 'https://github.com/karthikvetrivel',
   linkedin: 'https://linkedin.com/in/kvetriv',
-  resumeUrl: 'assets/336_resume.pdf',
   email: 'kvvetrivel@gmail.com',
 };
 
 // One "ball" per career stop, left-to-right in chronological order.
 const JOBS = [
   {
-    name: 'STANFORD', ballName: 'CARDINAL BALL',
-    color: '#8C1515', soft: '#e8b8b8',
-    role: 'B.S./M.S. Computer Science',
-    dates: '2021 – 2025',
-    type: 'ACADEMIC', level: 5,
-    blurb: 'B.S./M.S. in Computer Science (3.9/4.05 GPA), with research at the Stanford AI Lab on deep-learning human motion generation — published at CVPR ’23.',
+    name: 'STANFORD + META AI', ballName: 'CARDINAL BALL',
+    color: '#8C1515', color2: '#0668E1', soft: '#e8b8b8',
+    role: 'Research Intern, Stanford AI Lab',
+    dates: 'Jun – Dec 2022',
+    type: 'RESEARCH', level: 5,
+    blurb: 'Joint Stanford + Meta AI research on deep-learning human motion generation — published at CVPR ’23.',
     accomplishments: [
-      'Published at CVPR ’23 — built the dataset and training pipeline for human motion generation.',
-      'Cut live neural-avatar latency from 200ms to 15ms (13×) with C and Linux socket-level optimizations.',
-      'Coursework: computer vision & deep learning, ML, NLP, parallel computing, distributed systems, OS.',
+      'Built the dataset and training pipeline behind the paper.',
+      'Cut live neural-avatar latency 200ms → 15ms (13×).',
     ],
     icon: 'tree',
   },
@@ -31,10 +29,10 @@ const JOBS = [
     role: 'ML Engineering Intern, Autopilot',
     dates: 'Jan – Mar 2024',
     type: 'ELECTRIC', level: 30,
-    blurb: 'Machine learning engineering on Autopilot — training at multi-node GPU scale and shipping inference to real cars.',
+    blurb: 'ML engineering on Autopilot — training at multi-node GPU scale, shipping inference to real cars.',
     accomplishments: [
-      'Built an out-of-core distributed GPU training pipeline for XGBoost, scaling to 500GB+ datasets.',
-      'Designed a Mixture-of-Experts network for automatic park mode on Model 3 & Y — sub-200ms inference on vehicle hardware.',
+      'Distributed out-of-core XGBoost training on 500GB+ datasets.',
+      'Mixture-of-Experts park mode for Model 3 & Y — sub-200ms on-vehicle.',
     ],
     icon: 'bolt',
   },
@@ -44,12 +42,11 @@ const JOBS = [
     role: 'Software Engineer, AI Infrastructure',
     dates: '2025 – Present',
     type: 'AI / GPU', level: 60,
-    blurb: 'I work on GPU Operator — NVIDIA’s open-source platform (10k+ GitHub stars) powering GPU provisioning for large-scale LLM training and inference across AWS, GCP, and Azure.',
+    blurb: 'I work on GPU Operator — NVIDIA’s open-source platform (10k+ GitHub stars) powering GPU provisioning for large-scale LLM training.',
     accomplishments: [
-      'Designed and shipped the ISV self-certification framework — featured at GTC ’26.',
-      'Architected zero-downtime GPU driver upgrades across DGX Cloud and 1000+ GPU training clusters.',
-      'Contributed graph-fusion transforms and pattern matchers to TensorRT-LLM for SSM and MoE inference.',
-      'Started as an SWE intern in 2024, building Kubernetes operators for NVIDIA Cloud Functions.',
+      'Shipped the ISV self-certification framework — featured at GTC ’26.',
+      'Zero-downtime GPU driver upgrades across 1000+ GPU clusters.',
+      'Graph-fusion transforms in TensorRT-LLM for SSM & MoE inference.',
     ],
     icon: 'chip',
   },
@@ -61,6 +58,12 @@ const NPC_DIALOGUE = {
     "Oh! A visitor!\nWelcome to my lab.",
     "I'm " + PROFILE.name + ". I build the infrastructure that trains and serves AI.",
   ],
+  // {NAME} is replaced with the visitor's name at display time.
+  askName: 'And you are…?',
+  greetName: '{NAME}! Great to meet you.',
+  welcomeBack: 'Oh, {NAME}! Welcome back to my lab.',
+  expected: "Ah, {NAME}! I've been expecting you.",
+  again: 'Yes, {NAME}?',
   prompt: 'What would you like to know?',
   branches: [
     {
@@ -73,7 +76,7 @@ const NPC_DIALOGUE = {
     {
       label: 'THIS LAB',
       pages: [
-        'The PC connects to my GitHub, the bookshelves hold my skills, and the posters are my resume.',
+        'The PC connects to my GitHub, the bookshelves hold my favorite books, and the posters link to my LinkedIn.',
         'The door? That leads to my inbox. Use it any time.',
       ],
     },
@@ -84,20 +87,21 @@ const NPC_DIALOGUE = {
   ],
 };
 
-const BOOKSHELF_PAGES = [
-  'A shelf of well-worn books. The spines read like a skill tree…',
-  'LANGUAGES: Python, C, C++, Go, CUDA, Java, TypeScript. ML/AI: PyTorch, TensorFlow, Transformers, FP8 quantization, NCCL, DeepSpeed.',
-  'SYSTEMS: Linux, Kubernetes, Docker, AWS, Azure, GCP, eBPF. EDUCATION: B.S./M.S. Computer Science, Stanford University, 2021 – 2025.',
+// Favorite books — one per bookshelf section, mapped to shelves in game.js.
+const BOOKS = [
+  { title: 'DIE WITH ZERO', author: 'Bill Perkins' },
+  { title: 'ONE HUNDRED YEARS OF SOLITUDE', author: 'Gabriel García Márquez' },
+  { title: 'THE COVENANT OF WATER', author: 'Abraham Verghese' },
+  { title: 'CATCH-22', author: 'Joseph Heller' },
+  { title: "SURELY YOU'RE JOKING, MR. FEYNMAN!", author: 'Richard P. Feynman' },
+  { title: "FERMAT'S LAST THEOREM", author: 'Simon Singh' },
 ];
 
-// First-load tutorial — _KEYS for keyboard devices, _TOUCH for touchscreens.
+// First-load intro — one page; the on-screen hint pills teach the controls.
+// _KEYS for keyboard devices, _TOUCH for touchscreens.
 const FIRST_STEPS_KEYS = [
-  'You step into the lab. A professor looks up from a table of strange spheres…\n\n▼ CLICK HERE OR PRESS ENTER',
-  'Walk around with the ARROW KEYS or WASD.',
-  'When PRESS ENTER TO EXAMINE pops up, give it a try. Everything in the lab has a story — start with the professor!',
+  'You step into the lab. A professor looks up — go say hi!\n\n▼ CLICK OR PRESS ENTER',
 ];
 const FIRST_STEPS_TOUCH = [
-  'You step into the lab. A professor looks up from a table of strange spheres…\n\n▼ TAP HERE TO CONTINUE',
-  'Walk around with the pad at the bottom of the screen.',
-  'When TAP A TO EXAMINE pops up, give it a try. Everything in the lab has a story — start with the professor!',
+  'You step into the lab. A professor looks up — go say hi!\n\n▼ TAP HERE',
 ];

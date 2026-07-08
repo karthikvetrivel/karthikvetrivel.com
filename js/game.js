@@ -156,7 +156,7 @@ function openPanel(job) {
   panelEl.style.setProperty('--job-color', job.color);
   panelEl.style.setProperty('--job-soft', job.soft);
   renderIcon(iconSprite, job.icon, job.color);
-  renderBall(ballSprite, job.color);
+  renderBall(ballSprite, job.color, job.color2);
   panelArt.classList.remove('opening');
   void panelArt.offsetWidth;                // restart CSS animation
   panelArt.classList.add('opening');
@@ -173,6 +173,13 @@ document.getElementById('panel-close').addEventListener('click', closePanel);
 
 /* ── interactions ─────────────────────────────────────────────── */
 function openLink(url) { window.open(url, '_blank', 'noopener'); }
+
+// One favorite book per shelf unit: top wall holds two, each mid block two.
+function bookAt(x, y) {
+  if (y <= 1) return BOOKS[x <= 10 ? 0 : 1];
+  if (x <= 4) return BOOKS[x <= 2 ? 2 : 3];
+  return BOOKS[x <= 9 ? 4 : 5];
+}
 
 function interact() {
   const d = DIRS[player.dir];
@@ -194,10 +201,11 @@ function interact() {
       if (i === 0) openLink(PROFILE.github);
     });
   } else if (ch === 'B') {
-    showDialogue(BOOKSHELF_PAGES);
+    const book = bookAt(fx, fy);
+    showDialogue(['You pull out a well-worn copy of ' + book.title + ' by ' + book.author + '.']);
   } else if (ch === 'p') {
-    showMenu("A neatly pinned poster. It's a resume — one page, no fluff.", ['VIEW RESUME', 'CLOSE'], (i) => {
-      if (i === 0) openLink(PROFILE.resumeUrl);
+    showMenu('A neatly pinned poster — a whole career, charted out.', ['OPEN LINKEDIN', 'CLOSE'], (i) => {
+      if (i === 0) openLink(PROFILE.linkedin);
     });
   } else if (ch === 'w') {
     showDialogue(['Through the window, the route stretches off into the distance…']);
@@ -214,15 +222,82 @@ function interact() {
   } else if (ch === 'x') {
     showDialogue(['Document trays, neatly sorted. Research notes going back years.']);
   } else if (ch === 'q') {
-    showDialogue(["A leafy lab plant. It's surprisingly well cared for."]);
+    showDialogue(['A schefflera tree — the same one Karthik keeps in his apartment.', "It's surprisingly well cared for."]);
   }
 }
 
-let npcMet = false;
+/* ── visitor name (asked by the professor, remembered across visits) ── */
+const nameBoxEl = document.getElementById('namebox');
+const nameInput = document.getElementById('name-input');
+
+function cleanName(s) {
+  return (s || '').replace(/[^A-Za-z0-9 .'-]/g, '').trim().slice(0, 12).toUpperCase();
+}
+function readStoredName() {
+  try { return cleanName(localStorage.getItem('visitorName')); } catch { return ''; }
+}
+let visitorName = readStoredName();
+let expectedVisitor = false;
+{
+  const qName = cleanName(new URLSearchParams(location.search).get('name'));
+  if (qName && qName !== visitorName) {
+    visitorName = qName;
+    expectedVisitor = true;
+    try { localStorage.setItem('visitorName', qName); } catch {}
+  }
+}
+const fmt = (s) => s.replaceAll('{NAME}', visitorName);
+
+function openNameBox() {
+  mode = 'name';
+  dlgEl.hidden = false;            // keep the question on screen under the box
+  dlgMore.hidden = true;
+  nameBoxEl.hidden = false;
+  nameInput.value = '';
+  nameInput.focus({ preventScroll: true });
+}
+function closeNameBox(commit) {
+  const v = commit ? cleanName(nameInput.value) : '';
+  nameBoxEl.hidden = true;
+  dlgEl.hidden = true;
+  consoleEl.focus({ preventScroll: true });
+  if (v) {
+    visitorName = v;
+    try { localStorage.setItem('visitorName', v); } catch {}
+    Sound.confirm();
+    showDialogue([fmt(NPC_DIALOGUE.greetName)], npcMenu);
+  } else {
+    npcMenu();
+  }
+}
+document.getElementById('name-ok').addEventListener('click', () => closeNameBox(true));
+document.getElementById('name-skip').addEventListener('click', () => closeNameBox(false));
+nameInput.addEventListener('keydown', (e) => {
+  if (e.code === 'Enter') { e.preventDefault(); closeNameBox(true); }
+  else if (e.code === 'Escape') { e.preventDefault(); closeNameBox(false); }
+});
+
+let npcMet = false, askedName = false;
 function talkToNPC() {
-  const intro = npcMet ? [NPC_DIALOGUE.intro[0]] : NPC_DIALOGUE.intro;
+  const N = NPC_DIALOGUE;
+  let pages, after = npcMenu;
+  if (npcMet) {
+    pages = [visitorName ? fmt(N.again) : N.intro[0]];
+  } else if (expectedVisitor) {
+    pages = [fmt(N.expected), N.intro[1]];
+  } else if (visitorName) {
+    pages = [fmt(N.welcomeBack)];
+  } else {
+    pages = N.intro;
+    after = askVisitorName;
+  }
   npcMet = true;
-  showDialogue(intro, npcMenu);
+  showDialogue(pages, after);
+}
+function askVisitorName() {
+  if (askedName) return npcMenu();
+  askedName = true;
+  showDialogue([NPC_DIALOGUE.askName], openNameBox);
 }
 function npcMenu() {
   showMenu(NPC_DIALOGUE.prompt, NPC_DIALOGUE.branches.map((b) => b.label), (i) => {
@@ -263,6 +338,7 @@ function pressDir(dir) {
 }
 
 window.addEventListener('keydown', (e) => {
+  if (e.target === nameInput) return;   // typing a name, not playing
   const dir = KEYMAP[e.code];
   if (dir) {
     e.preventDefault();

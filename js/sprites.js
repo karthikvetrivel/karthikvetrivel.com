@@ -468,15 +468,22 @@ function renderIcon(canvas, iconKey, color) {
   });
 }
 
-function renderBall(canvas, color) {
+function renderBall(canvas, color, color2) {
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, 10, 10);
-  // dome shading derived from the company color
-  const n = parseInt(color.slice(1), 16);
-  const ch = (v) => Math.max(0, Math.min(255, Math.round(v)));
-  const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
-  const dark = 'rgb(' + ch(r * 0.55) + ',' + ch(g * 0.55) + ',' + ch(b * 0.55) + ')';
-  const lite = 'rgb(' + ch(r + (255 - r) * 0.7) + ',' + ch(g + (255 - g) * 0.7) + ',' + ch(b + (255 - b) * 0.7) + ')';
+  // dome shading derived from the company color; an optional second color
+  // splits the dome vertically (left/right halves)
+  const shades = (c) => {
+    const n = parseInt(c.slice(1), 16);
+    const ch = (v) => Math.max(0, Math.min(255, Math.round(v)));
+    const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+    return {
+      R: c,
+      D: 'rgb(' + ch(r * 0.55) + ',' + ch(g * 0.55) + ',' + ch(b * 0.55) + ')',
+      L: 'rgb(' + ch(r + (255 - r) * 0.7) + ',' + ch(g + (255 - g) * 0.7) + ',' + ch(b + (255 - b) * 0.7) + ')',
+    };
+  };
+  const left = shades(color), right = shades(color2 || color);
   // FRLG item ball: shaded dome w/ shine, black band, white button, gray-white bottom
   const rows = [
     '...oooo...',
@@ -490,14 +497,14 @@ function renderBall(canvas, color) {
     '.owWWWWwo.',
     '..oooooo..',
   ];
-  const pal = { o: '#20202a', R: color, D: dark, L: lite, W: '#ffffff', w: '#bcbcc8' };
+  const base = { o: '#20202a', W: '#ffffff', w: '#bcbcc8' };
   rows.forEach((row, y) => {
     for (let x = 0; x < 10; x++) {
-      const col = pal[row[x]];
+      const col = base[row[x]] || (x < 5 ? left : right)[row[x]];
       if (col) { ctx.fillStyle = col; ctx.fillRect(x, y, 1, 1); }
     }
   });
 }
 
-/* pre-render the four table balls */
-const ballCanvases = JOBS.map((j) => { const c = makeCanvas(10, 10); renderBall(c, j.color); return c; });
+/* pre-render the three table balls */
+const ballCanvases = JOBS.map((j) => { const c = makeCanvas(10, 10); renderBall(c, j.color, j.color2); return c; });
