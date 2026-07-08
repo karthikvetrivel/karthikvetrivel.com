@@ -71,8 +71,8 @@ const NPC_DIALOGUE = {
     {
       label: 'THIS LAB',
       pages: [
-        'The PC connects to my GitHub, the bookshelves hold my skills, and the posters are my resume.',
-        'The door? That leads to my inbox. Use it any time.',
+        'The PC connects to my GitHub, the bookshelves hold books I love to read, and the posters are my resume.',
+        'The door? That leads to my inbox. Use it any time — and poke around the lab; a few things hide little surprises.',
       ],
     },
     {
