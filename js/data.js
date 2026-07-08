@@ -13,7 +13,7 @@ const JOBS = [
   {
     name: 'STANFORD + META AI', ballName: 'CARDINAL BALL',
     color: '#8C1515', color2: '#0668E1', soft: '#e8b8b8',
-    role: 'Research Intern, Stanford AI Lab',
+    role: 'Research Intern',
     dates: 'Jun – Dec 2022',
     type: 'RESEARCH', level: 5,
     blurb: 'Joint Stanford + Meta AI research on deep-learning human motion generation — published at CVPR ’23.',
@@ -21,7 +21,7 @@ const JOBS = [
       'Built the dataset and training pipeline behind the paper.',
       'Cut live neural-avatar latency 200ms → 15ms (13×).',
     ],
-    icon: 'tree',
+    logo: 'stanford-meta',
   },
   {
     name: 'TESLA', ballName: 'VOLT BALL',
@@ -34,7 +34,7 @@ const JOBS = [
       'Distributed out-of-core XGBoost training on 500GB+ datasets.',
       'Mixture-of-Experts park mode for Model 3 & Y — sub-200ms on-vehicle.',
     ],
-    icon: 'bolt',
+    logo: 'tesla',
   },
   {
     name: 'NVIDIA', ballName: 'TENSOR BALL',
@@ -48,7 +48,7 @@ const JOBS = [
       'Zero-downtime GPU driver upgrades across 1000+ GPU clusters.',
       'Graph-fusion transforms in TensorRT-LLM for SSM & MoE inference.',
     ],
-    icon: 'chip',
+    logo: 'nvidia',
   },
 ];
 
@@ -56,27 +56,22 @@ const JOBS = [
 const NPC_DIALOGUE = {
   intro: [
     "Oh! A visitor!\nWelcome to my lab.",
-    "I'm " + PROFILE.name + ". I build the infrastructure that trains and serves AI.",
+    "I'm " + PROFILE.name + ". I love solving infrastructure problems that make deploying AI in the world easy.",
   ],
-  // {NAME} is replaced with the visitor's name at display time.
-  askName: 'And you are…?',
-  greetName: '{NAME}! Great to meet you.',
-  welcomeBack: 'Oh, {NAME}! Welcome back to my lab.',
-  expected: "Ah, {NAME}! I've been expecting you.",
-  again: 'Yes, {NAME}?',
   prompt: 'What would you like to know?',
   branches: [
     {
       label: 'THE JOURNEY',
       pages: [
-        'My journey runs Stanford, then Tesla Autopilot, and now NVIDIA. Each stop taught me something different.',
+        'My journey began at Stanford, where I studied computer science and learned from some of the smartest classmates and professors I could have asked for.',
+        'During my summers, I worked on research with a joint Meta–Stanford team, explored ML systems at Tesla, and built serverless inference infrastructure at NVIDIA.',
         'The three balls on the table hold the whole story. Go ahead — examine them, left to right!',
       ],
     },
     {
       label: 'THIS LAB',
       pages: [
-        'The PC connects to my GitHub, the bookshelves hold my favorite books, and the posters link to my LinkedIn.',
+        'The PC connects to my GitHub, the bookshelves hold my skills, and the posters are my resume.',
         'The door? That leads to my inbox. Use it any time.',
       ],
     },
