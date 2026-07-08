@@ -456,6 +456,57 @@ const SPRITES = {
   npc:   [renderSprite(SPR.npc, PAL)],
 };
 
+/* A compact bass guitar sprite, tall enough to lean against a workbench. */
+const BASS_ROWS = [
+  '.......oo.......',
+  '......oBBo......',
+  '.....oBLBBo.....',
+  '.....oBBBBo.....',
+  '.....oBBBo......',
+  '......oBBBo.....',
+  '......offfo.....',
+  '......oHHHo.....',
+  '......oHHHo.....',
+  '......offfo.....',
+  '......oHHHo.....',
+  '......oHHHo.....',
+  '......offfo.....',
+  '......oHHHo.....',
+  '......oHHHo.....',
+  '......offfo.....',
+  '......oHHHo.....',
+  '......oHHHo.....',
+  '......offfo.....',
+  '......oHHHo.....',
+  '......oHHHo.....',
+  '......oHHHo.....',
+  '.....oHHHHo.....',
+  '...oBBLHHLBBo...',
+  '..oBBBWWWWBBBo..',
+  '.oBBBWWWWWWBBBo.',
+  '.oBBWWWWWWWWBBo.',
+  '.oBBWWppppWWBBo.',
+  '.oBBWWppppWWBBo.',
+  '.oBBWWWWWWWWBBo.',
+  '.oBBWWppppWWBBo.',
+  '.oBBWWppppWWBBo.',
+  '..oBBWWWWWWBBo..',
+  '..oBBBkkkkBBBo..',
+  '...oBBBppBBBo...',
+  '....oBBBBBBo....',
+];
+const BASS_SPRITE = renderSprite(BASS_ROWS, {
+  o: '#06231a',
+  B: '#1f5c3a',
+  b: '#123f2a',
+  L: '#2f8659',
+  H: '#d9b06f',
+  f: '#eddaa8',
+  W: '#ece4cf',
+  p: '#14110e',
+  k: '#b8b2a2',
+});
+
 function renderIcon(canvas, iconKey, color) {
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, 16, 16);
@@ -468,11 +519,89 @@ function renderIcon(canvas, iconKey, color) {
   });
 }
 
+// Pixel masks traced from the Stanford block S and the Tesla, NVIDIA, and
+// Meta vector marks. They render inside the square on the experience panel.
+const COMPANY_LOGOS = {
+  'stanford-meta': [
+    {
+      color: '#8C1515', x: 1, y: 3,
+      rows: [
+        '..###..',
+        '.#####.',
+        '.##.##.',
+        '.####..',
+        '..####.',
+        '..#.##.',
+        '.#####.',
+        '..###..',
+      ],
+    },
+    {
+      color: '#0668E1', x: 9, y: 5,
+      rows: [
+        '.##.##.',
+        '#..#..#',
+        '#.###.#',
+        '#.#.#.#',
+        '##...##',
+      ],
+    },
+  ],
+  tesla: [
+    {
+      color: '#E82127', x: 1, y: 1,
+      rows: [
+        '..##########..',
+        '######..######',
+        '.############.',
+        '.##..####..##.',
+        '.....####.....',
+        '.....####.....',
+        '.....####.....',
+        '......##......',
+        '......##......',
+        '......##......',
+        '......##......',
+        '......##......',
+        '......##......',
+      ],
+    },
+  ],
+  nvidia: [
+    {
+      color: '#76B900', x: 1, y: 4,
+      rows: [
+        '....#..#######',
+        '..#..###.#####',
+        '.#.##..##.####',
+        '##.#.#..#.####',
+        '.#.#.###.#####',
+        '.##.###.##...#',
+        '..##.####..###',
+        '...##....#####',
+      ],
+    },
+  ],
+};
+
+function renderCompanyLogo(canvas, logoKey) {
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, 16, 16);
+  (COMPANY_LOGOS[logoKey] || []).forEach((mark) => {
+    ctx.fillStyle = mark.color;
+    mark.rows.forEach((row, ry) => {
+      for (let rx = 0; rx < row.length; rx++) {
+        if (row[rx] === '#') ctx.fillRect(mark.x + rx, mark.y + ry, 1, 1);
+      }
+    });
+  });
+}
+
 function renderBall(canvas, color, color2) {
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, 10, 10);
-  // dome shading derived from the company color; an optional second color
-  // splits the dome vertically (left/right halves)
+  // Dome shading derived from the company color; an optional second color
+  // splits the dome vertically (left/right halves).
   const shades = (c) => {
     const n = parseInt(c.slice(1), 16);
     const ch = (v) => Math.max(0, Math.min(255, Math.round(v)));
@@ -484,7 +613,7 @@ function renderBall(canvas, color, color2) {
     };
   };
   const left = shades(color), right = shades(color2 || color);
-  // FRLG item ball: shaded dome w/ shine, black band, white button, gray-white bottom
+  // FRLG item ball: shaded dome w/ shine, black band, white button, gray-white bottom.
   const rows = [
     '...oooo...',
     '..oRRRRo..',

@@ -7,7 +7,7 @@ const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* Map legend (collision/interaction; visuals come from the embedded
    FRLG lab background): E equipment  C pc  Y workbench  p poster
    w window  B bookshelf  x doc trays  M orb machine  T table
-   q plant  D door mat  X void  . floor                              */
+   q plant  g bass guitar  D door mat  X void  . floor                */
 const MAP = [
   'EECCYYppwBBBB',
   'EECCYYppwBBBB',
@@ -24,11 +24,12 @@ const MAP = [
   'XXXXXDDDXXXXX',
   'XXXXXXXXXXXXX',
 ];
-const SOLID = 'ECYpwBxMTqDX';
-const INTERACTABLE = 'ECYpwBxMTqD';   // SOLID minus the void; all answer to a press
+const SOLID = 'ECYpwBxMTqDgX';
+const INTERACTABLE = 'ECYpwBxMTqDg';   // SOLID minus the void; all answer to a press
 const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 const NPC_POS = { x: 6, y: 7 };
 const BALL_COLS = [8, 9, 10];   // table columns holding the three balls
+const BASS_POS = { x: 5, y: 2 };
 
 /* ── room background (the FRLG lab, 1:1) ── */
 const bg = makeCanvas(COLS * TILE, ROWS * TILE);
@@ -135,31 +136,18 @@ function cancelMenu() {
 
 /* ── detail panel ─────────────────────────────────────────────── */
 const panelEl = document.getElementById('panel');
-const panelArt = document.getElementById('panel-art');
-const iconSprite = document.getElementById('icon-sprite');
-const ballSprite = document.getElementById('ball-sprite');
+const companyLogo = document.getElementById('company-logo');
 
 function openPanel(job) {
   mode = 'panel';
-  document.getElementById('panel-ballname').textContent = job.ballName;
-  document.getElementById('panel-level').textContent = 'LV. ' + job.level;
   document.getElementById('panel-co').textContent = job.name;
   document.getElementById('panel-role').textContent = job.role;
   document.getElementById('panel-dates').textContent = job.dates;
   document.getElementById('panel-type').textContent = job.type + ' TYPE';
-  document.getElementById('panel-blurb').textContent = job.blurb;
-  const acc = document.getElementById('panel-acc');
-  acc.innerHTML = '';
-  job.accomplishments.forEach((a) => {
-    const li = document.createElement('li'); li.textContent = a; acc.appendChild(li);
-  });
   panelEl.style.setProperty('--job-color', job.color);
   panelEl.style.setProperty('--job-soft', job.soft);
-  renderIcon(iconSprite, job.icon, job.color);
-  renderBall(ballSprite, job.color, job.color2);
-  panelArt.classList.remove('opening');
-  void panelArt.offsetWidth;                // restart CSS animation
-  panelArt.classList.add('opening');
+  companyLogo.setAttribute('aria-label', job.name + ' logo');
+  renderCompanyLogo(companyLogo, job.logo);
   panelEl.hidden = false;
   Sound.open();
   document.getElementById('panel-close').focus({ preventScroll: true });
@@ -223,10 +211,12 @@ function interact() {
     showDialogue(['Document trays, neatly sorted. Research notes going back years.']);
   } else if (ch === 'q') {
     showDialogue(['A schefflera tree — the same one Karthik keeps in his apartment.', "It's surprisingly well cared for."]);
+  } else if (ch === 'g') {
+    showDialogue(['A well-loved bass guitar. Karthik played in a band back in college.']);
   }
 }
 
-/* ── visitor name (asked by the professor, remembered across visits) ── */
+/* ── visitor name (optional; remembered across visits when configured) ── */
 const nameBoxEl = document.getElementById('namebox');
 const nameInput = document.getElementById('name-input');
 
@@ -280,6 +270,16 @@ nameInput.addEventListener('keydown', (e) => {
 let npcMet = false, askedName = false;
 function talkToNPC() {
   const N = NPC_DIALOGUE;
+
+  // The visitor-name flow is optional. A compact NPC_DIALOGUE object with
+  // only intro, prompt, and branches should still open the professor menu.
+  if (!N.askName) {
+    const intro = npcMet ? [N.intro[0]] : N.intro;
+    npcMet = true;
+    showDialogue(intro, npcMenu);
+    return;
+  }
+
   let pages, after = npcMenu;
   if (npcMet) {
     pages = [visitorName ? fmt(N.again) : N.intro[0]];
@@ -443,6 +443,13 @@ function playerSprite() {
 function render() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(bg, 0, 0);
+
+  // Bass guitar leaning against the upper workbench. (temporarily removed)
+  // ctx.drawImage(
+  //   BASS_SPRITE,
+  //   BASS_POS.x * TILE - 6,
+  //   (BASS_POS.y + 1) * TILE - BASS_SPRITE.height,
+  // );
 
   // balls on the green table (subtle glint cycles between them)
   BALL_COLS.forEach((c, i) => {
